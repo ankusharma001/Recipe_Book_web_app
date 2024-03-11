@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FOOD HOOD</title>
+
+  <link rel="shortcut icon" href="food hood-logos_transparent.png" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/1f0ef325dc.js" crossorigin="anonymous"></script>
+  <link rel="shortcut icon" href="food hood-logos_transparent.png" type="image/x-icon">
+
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "HDvRVkZFCikpLzSe_",
+      });
+   })();
+</script>
+
+<style>
+  body{
+    background-color: rgb(192 223 219);
+  }
+  .input_group {
+    height: 280px;
+  }
+  .input-field {
+    background: #eaeaea;
+    margin: 15px 0;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    max-height: 65px;
+    transition: max-height 0.5s;
+    overflow: hidden;
+
+  }
+
+  .input-field input {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    padding: 18px 15px;
+
+  }
+
+  .input-field i {
+    margin-left: 15px;
+    color: #999;
+
+  }
+  .form-box {
+    width: 90%;
+    max-width: 450px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white transparent;
+    padding: 50px 60px 70px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 20px 20px 10px 5px solid grey;
+  }
+
+  .form-box h1 {
+    font-size: 30px;
+    margin-bottom: 60px;
+    color: #3c00a0;
+    position: relative;
+
+  }
+
+  .form-box h1::after {
+    content: '';
+    width: 84px;
+    height: 4px;
+    border-radius: 3px;
+    background: #3c00a0;
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    /* transform: translateX(-50%); */
+  }
+  button {
+    flex-basis: 48%;
+    background: rgb(208, 152, 41);
+    color: aliceblue;
+    width: 200px;
+
+    height: 40px;
+    border-radius: 20px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    /* transition: background 1s; */
+  }
+  .textare
+  {
+    padding: 10px;
+    border: none;
+    background-color: rgb(164, 202, 197);
+    font-size: 17px;
+
+  }
+  
+
+</style>
+
+</head>
+<body>
+  <div class="container">
+    <a href="index.html"><script src="https://cdn.lordicon.com/lordicon.js"></script>
+        <lord-icon
+            src="https://cdn.lordicon.com/epietrpn.json"
+            trigger="hover"
+            style="width:55px;height:55px;filter: drop-shadow(10px 12px 2px rgb(143, 137, 137))">
+        </lord-icon></a></div>
+
+  <div class="form-box">
+    <h1 id="title">Add your recipe</h1>
+
+    <div class="input_group">
+      <div class="input-field" id="namefield">
+        <i class="fa-solid fa-user"></i>
+        
+<input type="text" id="FullName" placeholder="FULL NAME" required><br>
+      </div>
+
+      <div class="input-field" id="email" >
+        <i class="fa-solid fa-envelope"></i>
+        <!-- <input type="email" placeholder="Email"> -->
+<input type="email" id="email_id" placeholder="EMAil" required><br>
+      </div>
+
+      <textarea  name="addoredit"  class="textare" class="textare" cols="50" rows="15" id="message" required></textarea><br>
+    <!-- <textarea  placeholder="message" ></textarea> <br> -->
+    <button onclick="sendmail()" ondblclick="display()" >send</button>
+
+  </div>
+
+
+
+
+  <script>
+    let title= document.getElementById("title")
+
+    function sendmail()
+    {
+      var params={
+        from_name :  document.getElementById("FullName").value,
+        email_id : document.getElementById("email_id").value,
+        message : document.getElementById("message").value
+
+      }
+      emailjs.send("service_mjhs9l8","template_fosxklj",params).then(function(res){
+        alert("your id is succesfully sibmited it willl added to this website soon ");
+      }) 
+      
+    }    
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FOOD HOOD</title>
+  <link rel="shortcut icon" href="food hood-logos_transparent.png" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/1f0ef325dc.js" crossorigin="anonymous"></script>
+  <link rel="shortcut icon" href="food hood-logos_transparent.png" type="image/x-icon">
+
+</head>
+<style>
+  
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  
+
+  .container {
+    width: 100vw;
+    height: 100vh;
+    /* background-image: linear-gradient(red,blue,green); */
+    background-color: rgb(192 223 219);
+    background-size: cover;
+  }
+
+  .form-box {
+    width: 90%;
+    max-width: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white transparent;
+    padding: 50px 60px 70px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 20px 20px 10px 5px solid grey;
+  }
+
+  .form-box h1 {
+    font-size: 30px;
+    margin-bottom: 60px;
+    color: #3c00a0;
+    position: relative;
+
+  }
+
+  .form-box h1::after {
+    content: '';
+    width: 84px;
+    height: 4px;
+    border-radius: 3px;
+    background: #3c00a0;
+    position: absolute;
+    bottom: -12px;
+    left: 40%;
+    /* transform: translateX(-50%); */
+  }
+
+  .input-field {
+    background: #eaeaea;
+    margin: 15px 0;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    max-height: 65px;
+    transition: max-height 0.5s;
+    overflow: hidden;
+
+  }
+
+  .input-field input {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    padding: 18px 15px;
+
+  }
+
+  .input-field i {
+    margin-left: 15px;
+    color: #999;
+
+  }
+
+  form p {
+    text-align: left;
+    font-size: 16px;
+
+  }
+
+  form p a {
+    /* text-decoration: none; */
+    color: rgb(66 47 148);
+  }
+
+  .btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .btn button {
+    flex-basis: 48%;
+    background: rgb(208, 152, 41);
+    color: aliceblue;
+
+    height: 40px;
+    border-radius: 20px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    /* transition: background 1s; */
+  }
+
+  #next {
+    flex-basis: 48%;
+    background: rgb(208, 152, 41);
+    color: aliceblue;
+    width: 143px;
+
+    height: 40px;
+    border-radius: 20px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+  }
+
+  .input_group {
+    height: 280px;
+  }
+
+  .btn button.disable {
+    background: #999;
+    color: rgb(7, 39, 39);
+
+  }
+
+  #next {
+    display: none;
+  }
+
+  .forgetpara {
+    display: block;
+    visibility: visible;
+  }
+  #submit
+  {
+    flex-basis: 48%;
+    background: rgb(208, 152, 41);
+    color: aliceblue;
+    width: 10rem;
+    margin-top: 40px;
+    height: 40px;
+    border-radius: 20px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    display:hidden;
+  }
+</style>
+
+<body>
+  
+  <main> 
+        
+    <div class="container">
+      <a href="index.html"><script src="https://cdn.lordicon.com/lordicon.js"></script>
+          <lord-icon
+              src="https://cdn.lordicon.com/epietrpn.json"
+              trigger="hover"
+              style="width:55px;height:55px;filter: drop-shadow(10px 12px 2px rgb(143, 137, 137))">
+          </lord-icon></a></div>
+      <div class="form-box">
+        <h1 id="title">sign up</h1>
+        <form action="">
+          <div class="input_group">
+            <div class="input-field" id="namefield">
+              <i class="fa-solid fa-user"></i>
+              <input type="text" placeholder="Name">
+
+            </div>
+            <div class="input-field" id="email" >
+              <i class="fa-solid fa-envelope"></i>
+              <input type="email" placeholder="Email">
+
+            </div>
+            <button id="next">submit your E-mail</button>
+            <div class="input-field" id="passwordfield">
+              <i class="fa-solid fa-lock"></i>
+              <input type="password" placeholder="password">
+
+            </div>
+            <p id="forgetpara">forget password <a href="#" id="forget">click here</a></p>
+          </div>
+          <div class="btn">
+            <button type="button" id="signupbtn">signup</button>
+            <button type="button" id="signinbtn" class="disable">signin</button>
+          </div>
+        </form>
+       <button id="submit" >sumbit</button>
+      </div>
+    </div>
+
+  </main>
+
+
+
+  <script>
+
+    let submit=document.getElementById("submit")
+    let email=document.getElementById("email")
+
+    let signup = document.getElementById("signupbtn")
+    let signin = document.getElementById("signinbtn")
+
+    let namefield = document.getElementById("namefield")
+
+    let forget = document.getElementById("forget")
+    let title = document.getElementById("title")
+
+    let forgetbtn = document.getElementById("next")
+    let link = document.getElementById("forgetpara")
+
+    let next = document.getElementById("next")
+
+    let text=document.getElementsByClassName("input-field")
+
+    // let inputbox = document.querySelectorAll("input_group")
+   
+    submit.onclick = function () {
+      namefield.style.maxHeight = "0";
+      passwordfield.style.maxHeight = "0";
+      title.innerText = "you are successfully loged in  now go back to home page"
+      signin.style.visibility = "hidden";
+      signup.style.visibility = "hidden";
+      email.style.display = "none";
+      submit.style.display = "none";
+      link.style.visibility = "hidden";
+      next.style.display="none";
+     
+      // submit.classList.remove("disable");
+
+
+    }
+
+
+    next.onclick = function () {
+      namefield.style.maxHeight = "0";
+      passwordfield.style.maxHeight = "0";
+      title.innerText = "Enter Your E-mail"
+      signin.style.visibility = "hidden";
+      signup.style.visibility = "hidden";
+      forgetbtn.style.display = "block";
+      link.style.visibility = "hidden";
+
+    }
+
+
+    forget.onclick = function () {
+      namefield.style.maxHeight = "0";
+      passwordfield.style.maxHeight = "0";
+      title.innerText = "Enter Your E-mail"
+      signin.style.visibility = "hidden";
+      signup.style.visibility = "hidden";
+      forgetbtn.style.display = "block";
+      link.style.visibility = "hidden";
+      document.getElementsByClassName("input_group").style.height = "80px";
+
+    }
+
+    signin.onclick = function () {
+      namefield.style.maxHeight = "0";
+      title.innerText = "Sign In"
+      signin.classList.remove("disable");
+      signup.classList.add("disable");
+      link.style.visibility = "hidden";
+
+
+    }
+
+    signup.onclick = function () {
+      link.style.visibility = "visible";
+
+      namefield.style.maxHeight = "65px";
+      title.innerText = "Sign Up"
+      signup.classList.remove("disable");
+      signin.classList.add("disable");
+
+    }
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="search-box">
+    <div class="row">
+      <input type="text" id="input-box" placeholder="Search Your recipy">
+      <button>Search</button>
+    </div>
+    <div class="result-box">
+      <!-- <ul>
+        <li>javascript</li>
+        <li>web-development</li>
+        <li>cake</li>
+      </ul> -->
+    </div>
+  </div>
+  <script>
+    let ava=[
+    'html',
+    'css',
+    'javascript',
+    'cake',
+    'bread',
+    ];
+    const resultbox=document.querySelector(".result-box");
+    const inputbox=document.getElementById("input-box");
+    
+    inputbox.onkeyup=function()
+    {
+      let result =[];
+      let input= inputbox.value;
+      if(input.length)
+      {
+        result=ava.filter((keyword)=>
+        {
+          return keyword.toLowerCase().includes(input.toLowerCase());
+        });
+        console.log(result);
+      }
+      display(result);
+    }
+    
+
+    function display(result)
+    {
+      const content = result.map((list)=>{
+        return "<li onclick=selectinput(this) >"+list+"<li>";
+      });
+      resultbox.innerHTML="<ul>"+content+"<ul>";
+    }
+
+    function selectinput(list)
+    {
+      inputbox.value=list.innerHTML;
+    }
+
+  </script>
+</body>
+</html>
